@@ -42,6 +42,8 @@ echo -e "\e[1;32mTesting the Logstash by running the following command after log
 echo -e "\e[1;31m/usr/share/logstash/bin/logstash -e 'input { stdin { } } output { elasticsearch { hosts => ["10.0.15.10:9200"] } }'\e[0m"
 echo
 echo
-echo
+#Installing misc utilities
+echo -e "\e[1;32mInstalling jq and tmux now...\e[0m"
+sudo apt-get -y install tmux && apt-get -y install jq
 echo
 echo -e "\e[1;32mThe provisioning of Logstash server has been done!\e[0m"
