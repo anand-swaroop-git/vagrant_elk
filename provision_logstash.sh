@@ -2,20 +2,20 @@
 
 echo "I will provision your vagrant box!"
 
-echo "Provisioning started..."
+echo "\e[1;32mProvisioning started...\e[0m"
 apt-get -y update
-echo "apt updated!"
+echo "\e[1;32mapt updated!\e[0m"
 
-echo "Installing openjdk-8-jre-headless..."
+echo "\e[1;32mInstalling openjdk-8-jre-headless...\e[0m"
 apt-get -y install openjdk-8-jre-headless
 
-echo "Checking the installed java version..."
+echo "\e[1;32mChecking the installed java version...\e[0m"
 java -version
 
-echo "Doing the GPG thing..."
+echo "\e[1;32mDoing the GPG thing...\e[0m"
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 
-echo "Adding to the repo list..."
+echo "\e[1;32mAdding to the repo list...\e[0m"
 echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-5.x.list
 
 echo "\e[1;32mUpdating apt and installing logstash...\e[0m"
