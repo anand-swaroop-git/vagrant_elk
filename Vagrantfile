@@ -11,10 +11,24 @@ elastic_memory = "3096"
 logstash_ip = "10.0.15.11"
 logstash_memory = "2048"
 kibana_ip = "10.0.15.12"
-kibana_memory = "512"
+kibana_memory = "1024"
+test_box_ip = "10.0.15.9"
+test_box_memory = "512"
 
 
 Vagrant.configure("2") do |config|
+
+  # create test_box node
+
+  config.vm.define :testbox do |testbox_config|
+      testbox_config.vm.hostname = "testbox"
+      testbox_config.vm.box = "ubuntu/xenial64"
+      testbox_config.vm.network :private_network, ip: test_box_ip
+      testbox_config.vm.provider "virtualbox" do |vb|
+        vb.memory = test_box_memory
+      end
+      testbox_config.vm.provision :shell, path: "provision_testbox.sh"
+  end
 
   # create elasticsearch node
 
@@ -58,4 +72,5 @@ puts "-------------------------------------------------"
 puts "Elasticsearch_Endpoint   : http://#{elasticsearch_ip}:9200/"
 puts "Logstash IP              : #{logstash_ip}"
 puts "Kibana_Endpoint          : http://#{kibana_ip}:5601/"
+puts "TestBox                  : #{test_box_ip}"
 puts "-------------------------------------------------"
