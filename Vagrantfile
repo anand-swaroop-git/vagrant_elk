@@ -6,6 +6,8 @@
 
 # vi: set ft=ruby :
 
+# Variable Assignment
+
 elasticsearch_ip = "10.0.15.10"
 elastic_memory = "3096"
 logstash_ip = "10.0.15.11"
