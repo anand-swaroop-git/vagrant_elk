@@ -10,16 +10,16 @@ echo -e "\e[1;32mChecking the installed java version...\e[0m"
 java -version
 
 echo -e "\e[1;32mDownloading Elasticsearch now!\e[0m"
-sudo wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.1-amd64.deb > /dev/null 2>&1
+sudo wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.0-amd64.deb > /dev/null 2>&1
 
 echo -e "\e[1;32mDownload PGP Keys!\e[0m"
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.1-amd64.deb.sha512 > /dev/null 2>&1
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.0-amd64.deb.sha512 > /dev/null 2>&1
 
 echo -e "\e[1;32mVerifying Checksum!\e[0m"
-shasum -a 512 -c elasticsearch-7.6.1-amd64.deb.sha512
+shasum -a 512 -c elasticsearch-7.8.0-amd64.deb.sha512
 
 echo -e "\e[1;32mUnpacking!\e[0m"
-sudo dpkg -i elasticsearch-7.6.1-amd64.deb
+sudo dpkg -i elasticsearch-7.8.0-amd64.deb
 
 echo -e "\e[1;32mConfiguring for Startup!\e[0m"
 sudo update-rc.d elasticsearch defaults 95 10
