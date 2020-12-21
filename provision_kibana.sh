@@ -8,7 +8,7 @@ echo -e "\e[1;32mAdding to the repo list... \e[0m"
 sudo echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 
 echo -e "\e[1;32mUpdating apt and installing kibana... \e[0m"
-apt-get update && apt-get install kibana
+sudo apt-get update && apt-get install kibana
 
 ### Inject our custom settings in Kibana
 echo -e "\e[1;32mEntering custom server.host, server.name and elasticsearch.url now...\e[0m"
@@ -30,3 +30,5 @@ echo -e "\e[1;32mChecking Kibana service status... \e[0m"
 sudo service kibana status
 
 echo -e "\e[1;32mThe provisioning of Kibana server has been done!\e[0m"
+
+
